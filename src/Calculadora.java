@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Calculadora {
     public static void main(String[] args) {
         int operator;
+        int again;
         Scanner scan = new Scanner(System.in);
 
         try {
@@ -10,27 +11,25 @@ public class Calculadora {
             do {
                 System.out.println("\nDigite qual operação deseja fazer: \n" +
                         "Para somar digite 1 ->\n" +
-                        "Para subtrair digite ->\n" +
+                        "Para subtrair digite 2 ->\n" +
                         "Para dividir digite 3 ->\n" +
-                        "Para multiplicar digite 4 ->\n" +
-                        "Para encerrar digite 0 ->\n");
+                        "Para multiplicar digite 4 ->\n");
 
                 operator = scan.nextInt();
 
-                if (operator == 0) {
-                    System.out.println("Programa finalizado!");
-                } else if (operator == 1) {
-                    sum(0, 0);
-                } else if (operator == 2) {
-                    minus(0, 0);
-                } else if (operator == 3) {
-                    div(0, 0);
-                } else if (operator == 4) {
-                    mult(0, 0);
-                } else {
-                    System.out.println("Conta inválida");
-                }
-            } while (operator != 0);
+                if (operator == 1) sum(0, 0);
+                else if (operator == 2) minus(0, 0);
+                else if (operator == 3) div(0, 0);
+                else if (operator == 4) mult(0, 0);
+                else System.out.println("Conta inválida");
+
+                System.out.println("\nVocê deseja continuar? \n" +
+                        "Caso sim digite 1 ->\n" +
+                        "Caso não digite 2 ->\n");
+                again = scan.nextInt();
+            }
+            while (again != 2);
+            System.out.println("Programa finalizado!");
         } catch (Exception e) {
             System.out.println("Erro de exceção!");
         }
